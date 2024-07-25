@@ -82,5 +82,50 @@ document.addEventListener('DOMContentLoaded', function () {
             updateCart(); // カート表示を更新
             updateCartCount(); 
         }
-    }
+    }   
+
+    // モーダル機能
+    var modal = document.getElementById("modal");
+    var closeBtn = document.querySelector(".close");
+    var modalProductDetail = document.getElementById("modal-product-detail");
+    var modalProductReviews = document.getElementById("modal-product-reviews");
+
+    var productDetails = {
+        1: {
+            detail: "これは森川ですの商品詳細です。",
+            reviews: ["レビュー1: 良い商品です。", "レビュー2: まあまあです。", "レビュー3: 良い商品です。", "レビュー4: まあまあです。"]
+        },
+        2: {
+            detail: "これは来れますか？服部の商品詳細です。",
+            reviews: ["レビュー1: とても良い商品です。", "レビュー2: 最高です。"]
+        }
+    };
+
+    document.querySelectorAll(".openModalBtn").forEach(function (btn) {
+        btn.onclick = function () {
+            var productId = btn.getAttribute("data-product-id");
+            var productDetail = productDetails[productId];
+
+            modalProductDetail.textContent = productDetail.detail;
+            modalProductReviews.innerHTML = "";
+            productDetail.reviews.forEach(function (review) {
+                var li = document.createElement("li");
+                li.textContent = review;
+                modalProductReviews.appendChild(li);
+            });
+
+            modal.style.display = "block";
+        };
+    });
+
+    closeBtn.onclick = function () {
+        modal.style.display = "none";
+    };
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+    
 });

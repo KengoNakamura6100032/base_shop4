@@ -77,6 +77,7 @@ button {
     cursor: pointer;
 }
 
+/* 既存のスタイルに追加 */
 .modal {
     display: none;
     position: fixed;
@@ -98,6 +99,8 @@ button {
     width: 80%;
     max-width: 500px;
     text-align: center;
+    max-height: 20%; /* 追加: モーダルの最大高さを設定 */
+    overflow-y: auto; /* 追加: 縦方向のスクロールを有効にする */
 }
 
 .close {
@@ -114,6 +117,31 @@ button {
     text-decoration: none;
     cursor: pointer;
 }
+
+
+.review-container {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 10px;
+    max-height: 200px;
+    overflow-y: auto; /* 追加: レビューコンテナ内のスクロールを有効にする */
+}
+
+.review-container ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.review-container li {
+    background-color: #f8f8f8;
+    margin-bottom: 5px;
+    padding: 5px;
+    border-radius: 4px;
+    text-align: left;
+}
+
+
 
 footer {
     background-color: #333;
