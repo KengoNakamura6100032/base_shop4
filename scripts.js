@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var productDetails = {
         1: {
-            detail: "これは森川ですの商品詳細です。",
+            detail: "これは森川ですの商品詳細です。\n\n\n BASE初代MVPである守川さんの名前を森川や杜川などと間違える事案が多発したことで作成されたスタンプである。\n\n急いでいると間違えてしまうことがあるため、この問題は解決されることはないであろう。\n\nまた、最近では意図的に守川以外の漢字に変換する者もおり、もはや一文字もカスっていないという状況にエスカレートしていることも。\n\n出品者コメント\n 最近MVPを取得されたことで、今後価格が高騰することが見込まれますので、今が買い時です。\n※購入後すぐに利用可能\n※転売はお断り願います",
             reviews: ["レビュー1: 良い商品です。", "レビュー2: まあまあです。", "レビュー3: 良い商品です。", "レビュー4: まあまあです。"]
         },
         2: {
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
             var productId = btn.getAttribute("data-product-id");
             var productDetail = productDetails[productId];
 
-            modalProductDetail.textContent = productDetail.detail;
+            modalProductDetail.innerText = productDetail.detail;
             modalProductReviews.innerHTML = "";
             productDetail.reviews.forEach(function (review) {
                 var li = document.createElement("li");

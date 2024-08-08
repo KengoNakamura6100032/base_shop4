@@ -99,7 +99,7 @@ button {
     width: 80%;
     max-width: 500px;
     text-align: center;
-    max-height: 20%; /* 追加: モーダルの最大高さを設定 */
+    max-height: 50%; /* 追加: モーダルの最大高さを設定 */
     overflow-y: auto; /* 追加: 縦方向のスクロールを有効にする */
 }
 
