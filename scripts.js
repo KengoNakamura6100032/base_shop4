@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function () {
     // カート機能
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
     
     function updateCartCount() {
-        const itemCount = cart.reduce((total, item) => total + item.quantity, 0);
+        let itemCount = cart.reduce((total, item) => total + item.quantity, 0);
         const cartCountElement = document.getElementById('cart-count');
         if (cartCountElement) {
             cartCountElement.innerText = itemCount;
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
             btn.onclick = function () {
                 const product = btn.getAttribute('data-product');
                 const price = parseInt(btn.getAttribute('data-price'));
-                const item = cart.find(item => item.product === product);
+                let item = cart.find(item => item.product === product);
                 if (item) {
                     item.quantity++;
                 } else {
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         function updateCart() {
             cartItemsContainer.innerHTML = '';
-            const totalAmount = 0;
+            let totalAmount = 0;
             cart.forEach(function (item) {
                 const cartItem = document.createElement('div');
                 cartItem.className = 'cart-item';
