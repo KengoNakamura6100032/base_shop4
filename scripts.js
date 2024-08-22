@@ -98,6 +98,10 @@ document.addEventListener('DOMContentLoaded', function () {
         2: {
             detail: "これは「来れますか？服部」の商品詳細です。",
             reviews: ["レビュー1: とても良い商品です。", "レビュー2: 最高です。"]
+        },
+        3: {
+            detail: "これは「優秀な小林のコード」の商品詳細です。",
+            reviews: ["レビュー1: とても良い商品です。", "レビュー2: 最悪です。"]
         }
     };
 
