@@ -1,4 +1,4 @@
-import { productDetails } from "./store";
+import { productDetails } from "./store.js";
 
 document.addEventListener('DOMContentLoaded', function () {
     // カート機能
