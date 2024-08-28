@@ -1,5 +1,3 @@
-import { productDetails } from "./store.js";
-
 document.addEventListener('DOMContentLoaded', function () {
     // カート機能
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
