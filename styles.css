@@ -1,8 +1,14 @@
+/* 全体レイアウト調整 */
 body {
-    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     margin: 0;
-    padding: 0;
-    background-color: #f8f8f8;
+}
+
+/* メインコンテンツがフッターを押し上げるようにする */
+main {
+    flex: 1;
 }
 
 header {
@@ -93,13 +99,13 @@ button {
 
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 5% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    max-width: 500px;
+    max-width: 70%;
     text-align: center;
-    max-height: 50%; /* 追加: モーダルの最大高さを設定 */
+    max-height: 70%; /* 追加: モーダルの最大高さを設定 */
     overflow-y: auto; /* 追加: 縦方向のスクロールを有効にする */
 }
 
@@ -142,14 +148,16 @@ button {
 }
 
 
-
+/* フッターの固定スタイル */
 footer {
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 10px 0;
     width: 100%;
+    position: sticky;
     bottom: 0;
+    left: 0;
 }
 
 .cart-total {
@@ -159,4 +167,54 @@ footer {
 
 .cart-items {
     display: flex;
+}
+
+
+/* お問い合わせページのスタイル */
+.contact-form {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #666;
+    outline: none;
+}
+
+button[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #555;
 }
