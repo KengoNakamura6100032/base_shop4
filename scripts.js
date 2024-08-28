@@ -1,3 +1,5 @@
+import { productDetails } from "./store";
+
 document.addEventListener('DOMContentLoaded', function () {
     // カート機能
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -90,20 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const modalProductDetail = document.getElementById("modal-product-detail");
     const modalProductReviews = document.getElementById("modal-product-reviews");
 
-    const productDetails = {
-        1: {
-            detail: "これは「粗品1」の商品詳細です。\n\n\n ああああああああああああ\n\n急いでいると間違えてしまうことがあるため、この問題は解決されることはないであろう。\n\nまた、最近では意図的に以外の漢字に変換する者もおり、もはや一文字もカスっていないという状況にエスカレートしていることも。\n\n出品者コメント\n 最近MVPを取得されたことで、今後価格が高騰することが見込まれます。\n\n※購入後すぐに利用可能\n※転売はお断り願います\n\nタグ\nMVP 誤字 森川さん 杜川さん 銛川さん",
-            reviews: ["レビュー1: 良い商品です。", "レビュー2: まあまあです。", "レビュー3: 良い商品です。", "レビュー4: まあまあです。"]
-        },
-        2: {
-            detail: "これは「粗品2」の商品詳細です。",
-            reviews: ["レビュー1: とても良い商品です。", "レビュー2: 最高です。"]
-        },
-        3: {
-            detail: "これは「粗品3」の商品詳細です。",
-            reviews: ["レビュー1: とても良い商品です。", "レビュー2: 最悪です。"]
-        }
-    };
+
 
     document.querySelectorAll(".openModalBtn").forEach(function (btn) {
         btn.onclick = function () {
