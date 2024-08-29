@@ -141,8 +141,8 @@ button {
 
 .review-container li {
     background-color: #f8f8f8;
-    margin-bottom: 5px;
-    padding: 5px;
+    margin: 15px 0px;
+    padding: 10px 5px;
     border-radius: 4px;
     text-align: left;
 }
@@ -167,6 +167,8 @@ footer {
 
 .cart-items {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 
@@ -217,4 +219,12 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
     background-color: #555;
+}
+
+@media screen and (max-width: 480px) {
+	/* 480px以下に適用されるCSS（スマホ用） */
+    nav ul li {
+        display: inline;
+        margin: 0 10px;
+    }
 }
