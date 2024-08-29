@@ -82,7 +82,14 @@ document.addEventListener('DOMContentLoaded', function () {
             updateCart(); // カート表示を更新
             updateCartCount(); 
         }
-    }   
+    } 
+
+    if (document.querySelector('.contact-form')) {
+        const submitBtn = document.getElementById("contact-submit-button")
+        submitBtn.onclick = function () {
+            alert("問い合わせを受け付けました。クレーム以外であれば対応いたします。")
+        }
+    }
 
     // モーダル機能
     const modal = document.getElementById("modal");
