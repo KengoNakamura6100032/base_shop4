@@ -225,6 +225,6 @@ button[type="submit"]:hover {
 	/* 480px以下に適用されるCSS（スマホ用） */
     nav ul li {
         display: inline;
-        margin: 0 10px;
+        margin: 0 5px;
     }
 }
