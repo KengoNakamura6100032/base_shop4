@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (document.querySelector('.contact-form')) {
         const submitBtn = document.getElementById("contact-submit-button")
         submitBtn.onclick = function () {
-            alert("問い合わせを受け付けました。クレーム以外であれば対応いたします。")
+            alert("/docs.html にアクセスすると作業手順書が確認できます。")
         }
     }
 

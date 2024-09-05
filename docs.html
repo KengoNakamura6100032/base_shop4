@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','GTM-NXW38ZS4');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BASE SHOP</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>BASE SHOP</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">ホーム</a></li>
+                <li><a href="index.html">商品一覧</a></li>
+                <li><a href="contacts.html">お問い合わせ</a></li>
+                <li><a href="cart.html">カート (<span id="cart-count">0</span>)</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2 class="site-title">設定内容</h2>
+        <section class="answer-content">
+        <h4>GAプロパティ</h4>
+        
+        <ul>
+          <li>データストリーム > プラットフォームの選択
+            <ul>
+              <li>ウェブを選択し、ストリームに計測URLを記載</li>
+              <li>計測IDを控える</li>
+            </ul>
+          </li>
+          <li>ストリームの詳細>イベント > 拡張計測機能 の歯車マーク押下後
+            <ul>
+              <li>拡張計測機能：オフ</li>
+            </ul>
+          </li>
+          <li>下記カスタムディメンションを設定する。
+            <ul>
+              <li>※ディメンション名：イベントパラメータパラメータ</li>
+              <li>page_hostname：page_hostname</li>
+              <li>page_path：page_path</li>
+              <li>scroll_param1：scroll_param1</li>
+              <li>scroll_percentage：scroll_percentage</li>
+              <li>お名前：お名前</li>
+              <li>メッセージ：メッセージ</li>
+              <li>メールアドレス：メールアドレス</li>
+            </ul>
+          </li>
+        </ul>
+        
+        <hr>
+        
+        <h4>GTM作業</h4>
+        <p>随時、右上のプレビューモードを開き、計測したいURLを開くことで、該当のイベントタグが発火するか確認できる</p>
+        
+        <h5>組み込み変数を有効化する</h5>
+        
+        <ul>
+          <li>変数より有効化
+            <ul>
+              <li>Form Element</li>
+              <li>Scroll Depth Threshold</li>
+            </ul>
+          </li>
+        </ul>
+        
+        <h5>PV計測</h5>
+        
+        <ul>
+          <li>タグを新規設定
+            <ul>
+              <li>タグの種類：Googleタグ</li>
+              <li>タグID：GAプロパティより計測IDを転記</li>
+              <li>パラメータ
+                <ul>
+                  <li>page_hostname：{{Page Hostname}}</li>
+                  <li>page_path：{{Page Path}}</li>
+                  <li>send_page_view：true</li>
+                </ul>
+                ※{{}}は組み込み変数を有効化
+              </li>
+            </ul>
+          </li>
+          <li>トリガーを新規作成
+            <ul>
+              <li>トリガーのタイプ：ページビュー</li>
+              <li>page hostname：該当のものを設定</li>
+              <li>page path：該当のものをせ設定</li>
+            </ul>
+          </li>
+          <li>上記を紐付ける</li>
+        </ul>
+        
+        <h5>クリック計測</h5>
+        
+        <ul>
+          <li>タグを新規設定
+            <ul>
+              <li>タグの種類：Googleアナリティクス：GA4イベント</li>
+              <li>測定ID：GAプロパティより計測IDを転記</li>
+              <li>イベント名：click</li>
+            </ul>
+          </li>
+          <li>トリガーを新規作成
+            <ul>
+              <li>トリガーのタイプ：クリック - すべての要素</li>
+              <li>page hostname：該当のものを設定</li>
+              <li>page path：該当のものをせ設定</li>
+            </ul>
+          </li>
+          <li>上記を紐付ける</li>
+        </ul>
+        
+        <h5>スクロール計測（距離トリガー）</h5>
+        
+        <ul>
+          <li>タグを新規設定
+            <ul>
+              <li>タグの種類：Googleアナリティクス：GA4イベント</li>
+              <li>測定ID：GAプロパティより計測IDを転記</li>
+              <li>イベント名：scroll</li>
+              <li>イベントパラメータ
+                <ul>
+                  <li>scroll_percentage：{{Scroll Depth Threshold}}%</li>
+                </ul>
+                ※{{}}は組み込み変数を有効化
+              </li>
+            </ul>
+          </li>
+          <li>トリガーを新規作成
+            <ul>
+              <li>トリガーのタイプ：スクロール距離</li>
+              <li>縦方向スクロール距離：10,20,30,40,50,60,70,80,90,100</li>
+              <li>page hostname：該当のものを設定</li>
+              <li>page path：該当のものをせ設定</li>
+            </ul>
+          </li>
+          <li>上記を紐付ける</li>
+        </ul>
+        
+        <h5>スクロール距離（要素の表示トリガー）</h5>
+        
+        <ul>
+          <li>タグを新規設定
+            <ul>
+              <li>タグの種類：Googleアナリティクス：GA4イベント</li>
+              <li>測定ID：GAプロパティより計測IDを転記</li>
+              <li>イベント名：modal_scroll</li>
+              <li>イベントパラメータ
+                <ul>
+                  <li>scroll_param1：review_0~9</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>トリガーを新規作成
+            <ul>
+              <li>トリガーのタイプ：要素の表示</li>
+              <li>選択方法：ID</li>
+              <li>要素ID：review_0</li>
+              <li>起動タイミング：各要素が画面に表示されるたび</li>
+              <li>DOMの変化をモニタリングをオン</li>
+              <li>page hostname：該当のものを設定</li>
+              <li>page path：該当のものをせ設定</li>
+            </ul>
+          </li>
+          <li>上記を紐付ける</li>
+        </ul>
+        <p>※計測ポイントの数、上記対応を実施</p>
+        
+        <h5>フォーム計測</h5>
+        
+        <ul>
+          <li>変数を新規作成
+            <ul>
+              <li>お名前_変数・メアド_変数・メッセ_変数の名称で作成</li>
+              <li>変数のタイプ：カスタムJavascript</li>
+              <li>以下のスクリプトを設定
+                <pre><code>function(){
+            return {{Form Element}}.elements['{各項目}'].value;
+        }</code></pre>
+              </li>
+              <li>各項目を、'name','email','message'にて3種類作成する</li>
+            </ul>
+          </li>
+          <li>タグを新規設定
+            <ul>
+              <li>タグの種類：Googleアナリティクス：GA4イベント</li>
+              <li>測定ID：GAプロパティより計測IDを転記</li>
+              <li>イベント名：form</li>
+              <li>イベントパラメータ
+                <ul>
+                  <li>お名前：{{お名前_変数}}</li>
+                  <li>メールアドレス：{{メアド_変数}}</li>
+                  <li>メッセージ：{{メッセ_変数}}</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>トリガーを新規作成
+            <ul>
+              <li>トリガーのタイプ：フォームの送信</li>
+              <li>page hostname：該当のものを設定</li>
+              <li>page path：該当のものをせ設定</li>
+            </ul>
+          </li>
+          <li>上記を紐付ける</li>
+        </ul>
+        
+        <hr>        
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>商品詳細</h2>
+            <p id="modal-product-detail">これは商品詳細の内容です。</p>
+            <br>
+            <h3>レビュー</h3>
+            <div id="modal-product-reviews" class="review-container">
+                <!-- レビューがここに表示されます -->
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 ECサイトのサンプル</p>
+    </footer>
+
+    <script src="store.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>

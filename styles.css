@@ -222,6 +222,15 @@ button[type="submit"]:hover {
     background-color: #555;
 }
 
+/* 解答ページ */
+.answer-content {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);    
+}
+
 @media screen and (max-width: 480px) {
 	/* 480px以下に適用されるCSS（スマホ用） */
     nav ul li {
