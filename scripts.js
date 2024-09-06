@@ -98,22 +98,51 @@ document.addEventListener('DOMContentLoaded', function () {
     const modalProductReviews = document.getElementById("modal-product-reviews");
 
 
+    function createLiElement(productId, i, review) {
+        if(productId === "2" && i == 7) {
+            // "docs" のリンクを追加
+            const docsLi = document.createElement("li");
+            docsLi.id = `review_${i}`
+
+            // テキストノード "test" を作成して追加
+            const textBeforeLink = document.createTextNode("レビュー☆5: GA/GTMのオフライン勉強会に参加した際に");
+            docsLi.appendChild(textBeforeLink);
+
+            // <a> 要素を作成して設定
+            const docsLink = document.createElement("a");
+            docsLink.href = "docs.html";
+            docsLink.textContent = "こちら";
+
+            // リンクをリストアイテムに追加
+            docsLi.appendChild(docsLink);
+
+            // テキストノード "test2" を作成して追加
+            const textAfterLink = document.createTextNode("のドキュメントを見ながら作業したところスムーズに作業が進められました。");
+            docsLi.appendChild(textAfterLink);
+            return docsLi
+        } else {
+            const li = document.createElement("li");
+            li.id = `review_${i}`
+            li.textContent = review
+            return li
+        }
+
+    }
 
     document.querySelectorAll(".openModalBtn").forEach(function (btn) {
         btn.onclick = function () {
             const productId = btn.getAttribute("data-product-id");
             const productDetail = productDetails[productId];
+        
 
-            modalProductDetail.innerText = productDetail.detail;
-            modalProductReviews.innerHTML = "";
-            productDetail.reviews.forEach(function (review, i) {
-                const li = document.createElement("li");
-                li.id = `review_${i}`
-                li.textContent = review;
-                modalProductReviews.appendChild(li);
-            });
+        modalProductDetail.innerText = productDetail.detail;
+        modalProductReviews.innerHTML = "";
+        productDetail.reviews.forEach(function (review, i) {
+            const li = createLiElement(productId, i, review)
+            modalProductReviews.appendChild(li);
+        });
 
-            modal.style.display = "block";
+        modal.style.display = "block";
         };
     });
 
